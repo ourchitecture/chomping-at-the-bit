@@ -1,2 +1,3 @@
-# chomping-at-the-bit
-Chomping at the Bit
+# Chomping at the Bit
+
+Coming soon!
