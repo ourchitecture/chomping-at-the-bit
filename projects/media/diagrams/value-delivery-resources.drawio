@@ -1,0 +1,34 @@
+<mxfile host="65bd71144e">
+    <diagram id="oD-KY48f9kk2WWfgnvsv" name="Page-1">
+        <mxGraphModel dx="801" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3" value="" style="triangle;rotation=90;fontSize=24;fontStyle=1;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="287.92" y="284.04" width="210.82" height="281.09" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="" style="triangle;rotation=-90;fontSize=24;fontStyle=1;verticalAlign=middle;horizontal=1;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="287.92" y="70.00000000000003" width="210.82" height="281.09" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="" style="triangle;rotation=-90;fontSize=24;fontStyle=1;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="432" y="284.04" width="210.82" height="281.09" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="triangle;rotation=-90;fontSize=24;fontStyle=1;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="144" y="284.04" width="210.82" height="281.09" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="People" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;" vertex="1" parent="1">
+                    <mxGeometry x="363.33" y="240" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Technology" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;" vertex="1" parent="1">
+                    <mxGeometry x="507.40999999999997" y="450" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Value" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;" vertex="1" parent="1">
+                    <mxGeometry x="363.3299999999999" y="380" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Process" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;" vertex="1" parent="1">
+                    <mxGeometry x="219.40999999999994" y="450" width="60" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

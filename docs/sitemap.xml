@@ -2,7 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://www.ourchitecture.io/chomping-at-the-bit/</loc>
-         <lastmod>2022-02-11</lastmod>
+         <lastmod>2022-02-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.ourchitecture.io/chomping-at-the-bit/blog/</loc>
+         <lastmod>2022-02-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.ourchitecture.io/chomping-at-the-bit/license/</loc>
+         <lastmod>2022-02-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.ourchitecture.io/chomping-at-the-bit/value-delivery-concerns/</loc>
+         <lastmod>2022-02-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.ourchitecture.io/chomping-at-the-bit/value-delivery-lifecycle/</loc>
+         <lastmod>2022-02-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.ourchitecture.io/chomping-at-the-bit/value-delivery-resources/</loc>
+         <lastmod>2022-02-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.ourchitecture.io/chomping-at-the-bit/value-delivery-structures/</loc>
+         <lastmod>2022-02-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

@@ -8,6 +8,9 @@ site_author: "Ourchitecture"
 copyright: "Creative Commons Zero v1.0 Universal"
 theme:
   name: "material"
+  custom_dir: "./mkdocs/overrides"
+  logo: "assets/icons/chomping-at-the-bit.png"
+  favicon: "assets/icons/chomping-at-the-bit.png"
   icon:
     repo: fontawesome/brands/github
   palette:
@@ -32,7 +35,13 @@ theme:
     - "navigation.sections"
     - "toc.integrate"
 nav:
-  - "Home": "index.md"
+  - "Digital Value Delivery": "index.md"
+  - "Resources": "value-delivery-resources.md"
+  - "Structures": "value-delivery-structures.md"
+  - "Lifecycle": "value-delivery-lifecycle.md"
+  - "Concerns": "value-delivery-concerns.md"
+  - "Blog": "blog.md"
+  - "License": "license.md"
 extra:
   social:
     - icon: "fontawesome/brands/github"
