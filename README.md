@@ -1,3 +1,3 @@
 # Chomping at the Bit
 
-Coming soon!
+[📘📖 Read the open book!](https://www.ourchitecture.io/chomping-at-the-bit/)

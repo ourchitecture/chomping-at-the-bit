@@ -3,7 +3,7 @@ site_name: "Chomping at the Bit"
 site_url: "https://www.ourchitecture.io/chomping-at-the-bit/"
 repo_url: "https://github.com/ourchitecture/chomping-at-the-bit/#readme"
 repo_name: ourchitecture/chomping-at-the-bit
-edit_uri: "edit/main/projects/docs/src"
+edit_uri: "edit/main/projects/website/src"
 site_author: "Ourchitecture"
 copyright: "Creative Commons Zero v1.0 Universal"
 theme:

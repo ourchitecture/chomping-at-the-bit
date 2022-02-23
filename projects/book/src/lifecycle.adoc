@@ -1,0 +1,33 @@
+== Lifecycle
+
+Earlier, our review of Process highlighted the importance of agility and iterative improvements while the emphasis on Business Capabilities in the four structures helped identify how an organization delivers value. Now, we look at the lifecycle of value delivery and how they influence strategy. Capabilities live in only one stage of the lifecycle, but because Business Capability Models define aggregate capabilites at multiple levels of granularity, a higher level capability may contain capabilities that live in multiple stages of the lifecycle. In other words, a "Digital Commerce" capability will have many fine-grained capabilities that may each exist their own lifecycle stage. https://en.wikipedia.org/wiki/OKR[Objectives and Key Results (OKRs)] are an important tool in measuring the success of a capability in a specific lifecycle stage.
+
+=== Explore
+
+For capabilities that are completely new to an organization or challenge the core competencies of an organization, including value experiments, the four resources are focused on iterative experimentation; working with unknowns and forming value hypotheses that must be tested by using measurable results. Teams tend to grow during this stage.
+
+=== Enhance
+
+Once established, a capability may require more or less investment and experimentation to improve and maximize value delivery. However, these experiments are usually somewhat constrained by existing investments across people, processes, and technology. Certain standards and conventions are established to optimize the value stream that may improve or hinder the organization's ability to change. Teams may grow or shrink in this stage.
+
+=== Sustain
+
+Well-established capabilities are often moved to a "keep the lights on" lifecycle stage of maintenance; fixing issues on a constrained budget investment. Teams tend to shrink in this stage.
+
+=== Retire
+
+Some investment and focus is necessary to fully retire a capability from the business portfolio. Teams often shrink in this stage, but may actually require growth if "Sustain" investments were already incredibly lean and more effort is required to retire the capability.
+
+=== Conclusions
+
+[WARNING]
+.Technology impacts
+====
+While a business capability may have a distinct lifecycle stage of investment, supporting technology may force a lifecycle change. For example, older technology that is difficult to maintain or even no longer supported by a vendor may force a "Sustain" capability's technology into "Explore" and "Enhance" for a replacement solution and may require supporting redundant capabilities until the transition can be completed. Because technology is such an important resource for business, its impacts to the lifecycle must be communicated, understood, and planned for. Of course, technology opportunities may also afford a business opportunity and lifecycle change too.
+
+Redundant business capabilities due to technology solutions are increasingly frequent the larger the organization, especially across Software as a Service (SaaS) and Commercial Off-the-Shelf (COtS) software solutions from vendors. For example, the capabilities of technology that support Collaboration and Knowledge Management regularly overlap in features and function. Great organizations empower teams to make decisions that are best for the team while providing some level of governance / guidance that improves informed team decision making across the enterprise. While three teams may all want to choose collaboration software solutions from three different vendors, it is important to recognize all of the opportunities and risks across the enterprise toward optimizing and improving vendor management, pricing and licensing (e.g. volume discounts), partnerships, contract negotations and renewals (e.g. organizational leverage), budgeting and accounting, and more.
+====
+
+The influence of People across these stages can radically affect organizational structure and possibly even strategy. For example, if an individual "lives for innovation", they may have difficulty transitioning their work from "Explore" to "Enhance" or "Sustain". This behavior can result in https://en.wikipedia.org/wiki/Shiny_object_syndrome["shiny object syndrome"] and chasing "newness" within an organization, creating staffing challenges. Research suggests that https://martinfowler.com/articles/products-over-projects.html[long-lived product teams] of people may deliver the best results, but an organization must wrestle with the challenges of establishing long-lived capabilities with long-lived domain expertise against moving people across capabilities.
+
+Being intentional with strategy by explicitly acknowledging shifts forward and backward across these four lifecycle stages provides a temporal perspective on investment decision making. Next, reviewing the three concerns will help connect the strategy back with the four resources.

@@ -1,0 +1,12 @@
+[colophon]
+== Colophon
+
+Ourchitecture Publishing, Planet Earth.
+
+Creative Commons CC0 1.0 Universal
+
+Published on Earth.
+
+This book is designed by Eric Swanson, Jupiter, FL.
+
+Built with Asciidoctor 1.17.

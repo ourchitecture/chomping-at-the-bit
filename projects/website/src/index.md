@@ -2,11 +2,13 @@
 
 !!! abstract "Overview"
 
+    [:newspaper: Watch our blog for updates!](./blog.md)
+
+    [:material-file-pdf-box: Download the PDF.](./assets/documents/chomping-at-the-bit.pdf)
+
     :wave_tone4: Hello and welcome! You have stumbled upon an evolving, "open book"; a free and open-source book with [a permissive license](./license.md).
 
     Our goal is to drastically improve digital transformation efforts by establishing a standardized language for digital value delivery along with a collection of patterns that you can customize and apply in your own organizations.
-
-    [:newspaper: Watch our blog for updates!](./blog.md)
 
     Of course, these resources require time and effort. [Please support us.](https://www.patreon.com/ourchitecture)
 
@@ -20,7 +22,7 @@ The bit is the most basic unit of information in computing and digital communica
 
 <br clear="left">
 
-Improving digital experiences with technology at your company may offer new and expanded opportunities every year. The inherent complexity and challenges can be daunting though. Beyond the "bit", unlocking the value of technology rarely presents itself as a binary decision or solution, but as a vast collection of concerns and dependencies.
+The inherent complexity and challenges of digital experiences and capabilities can be daunting. Beyond the "bit", unlocking the value of technology rarely presents itself as a binary decision or solution, but as a vast collection of concerns and dependencies.
 
 ![The horse and rider connection.](./assets/graphics/the-horse-and-rider-connection.jpg){ width=50% align=right }
 
@@ -28,11 +30,11 @@ It is interesting that the "bit" in the equestrian world, is a tool that helps c
 
 > If a person is "chomping / champing at the bit", they are very impatient to do something, but they are prevented from doing it, usually by circumstances that they have no control over.
 
-Digital value delivery with technology affords us this experience every day! Business and technology experts alike have incredible ideas about the value they would like to deliver to customers, but run into roadblocks and obstacles along the way; developers experience this constantly during implementation while iterating over small coding experiments that grow into full-fledged features and capabilities.
+Like a Pacman character devouring dots, digital value delivery affords us the "chomping at the bit" experience of literally chomping at the bit every day; wanting to offer better digital experiences and new and improved business capabilities! Business and technology experts alike have incredible ideas about the value they would like to deliver to customers, but run into roadblocks and obstacles along the way; developers experience this constantly while iterating in short cycles with small coding experiments that grow into full-fledged features and capabilities.
 
 <br clear="right">
 
-People get excited about the potential behind what technology can enable. Let us first establish a working language to understand the complexity and challenges and to define some patterns for how to approach them and constantly improve.
+Technology can be exciting and offer great potential. In this project, we will establish a basic, working language to understand the complexity and challenges of digital value delivery and define some patterns for constant improvement.
 
 - [The Four Resources](./value-delivery-resources.md)
 - [The Four Structures](./value-delivery-structures.md)

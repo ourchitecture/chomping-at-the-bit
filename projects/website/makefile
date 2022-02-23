@@ -38,8 +38,8 @@ install: validate-tool init
 		--rm \
 		--interactive \
 		--tty \
-		--volume "$(shell pwd)/../../":/src \
-		--workdir /src/projects/docs/ \
+		--volume "$(shell pwd)/../../":/src/ \
+		--workdir /src/projects/website/ \
 		mkdocs \
 		build \
 			--clean \
@@ -55,8 +55,8 @@ start: validate-tool init
 		--rm \
 		--interactive \
 		--tty \
-		--volume "$(shell pwd)/../../":/src \
-		--workdir /src/projects/docs/ \
+		--volume "$(shell pwd)/../../":/src/ \
+		--workdir /src/projects/website/ \
 		--publish $(container_internal_port):$(container_host_port) \
 		mkdocs \
 		serve \
