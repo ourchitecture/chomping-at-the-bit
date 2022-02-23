@@ -1,0 +1,22 @@
+== Concerns
+
+=== Speed
+
+* How quickly can business capability investments be realized?
+* How quickly can people deliver value?
+* How quickly does value flow through the value delivery stream?
+* How does technology influence the speed of value delivery?
+
+=== Safety
+
+* Are business capability lifecycle stages explicitly identified as part of the strategy?
+* How safe do people feel? Trust, psychological safety, autonomy, empowerment, diversity and inclusivity, privacy, non-discrimination, anti-harassment, no retaliation, workplace health, etc.
+* How safe are processes? Are they too rigid and / or slow, causing negative friction? Are they too loose and could use intentional friction? Do people understand the "Why?" and value of intentional friction?
+* Is technology safe? Are there security risks like privacy or data leak hazards? Are software versions and patch management constantly being upgraded? Are vulnerabilities scanned for? Is it compliant with laws and regulations? Are there business continuity and disaster recovery plans? How maintainable is the software? How is the reliability of the software (e.g. Software Reliability Engineering (SRE))? Is the technology available with well-designed and monitored Service Level Indicators (SLI) in support of Service Level Objectives (SLO)? Is there ongoing support for the technology including vendor and / or community support? Are software package dependencies understood and does individual package licensing introduce risk?
+
+=== Scale
+
+* How well can the business adapt to changing investments in capabilities and transitioning through the lifecycle stages?
+* Are more or less people needed and where? What kind of talent is required? Is scaling the many aspects of diversity into organizational structures and teams an intentional and strategic investment? Can the organization maintain strategic alignment across teams?
+* Can processes and process governance shrink, grow, and adapt as needed? Are unique team and system concerns reflected by adaptable processes? Can the organization's leadership maintain strategic visibility as processes scale? Do processes cause negative friction when scaling people and / or technology?
+* Can technology scale in and out and possibly up and down elastically to meet demand? Is innovation a regular part of doing business and how quickly can new technology be introduced?

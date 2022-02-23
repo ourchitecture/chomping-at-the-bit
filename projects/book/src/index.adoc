@@ -1,0 +1,22 @@
+= Chomping at the Bit
+Ourchitecture @ourchitectureio
+v0.0.1-alpha-1, 2022-02-22: initital content
+:doctype: book
+:toc:
+
+include::colophon.adoc[]
+
+include::dedication.adoc[]
+
+include::introduction.adoc[]
+
+include::resources.adoc[]
+
+include::structures.adoc[]
+
+include::lifecycle.adoc[]
+
+include::concerns.adoc[]
+
+[index]
+== Index

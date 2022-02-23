@@ -2,19 +2,21 @@
 
 Earlier, our review of [Process](./value-delivery-resources.md#process) highlighted the importance of agility and iterative improvements while the emphasis on Business Capabilities in [the four structures](./value-delivery-structures.md) helped identify how an organization delivers value. Now, we look at the lifecycle of value delivery and how they influence strategy. Capabilities live in only one stage of the lifecycle, but because Business Capability Models define aggregate capabilites at multiple levels of granularity, a higher level capability may contain capabilities that live in multiple stages of the lifecycle. In other words, a "Digital Commerce" capability will have many fine-grained capabilities that may each exist their own lifecycle stage. [Objectives and Key Results (OKRs)](https://en.wikipedia.org/wiki/OKR) <sup>:octicons-link-16:</sup> are an important tool in measuring the success of a capability in a specific lifecycle stage.
 
-## Explore
+## Stages of value delivery
+
+### Explore
 
 For capabilities that are completely new to an organization or challenge the core competencies of an organization, including value experiments, [the four resources](./value-delivery-resources.md) are focused on iterative experimentation; working with unknowns and forming value hypotheses that must be tested by using measurable results. Teams tend to grow during this stage.
 
-## Enhance
+### Enhance
 
 Once established, a capability may require more or less investment and experimentation to improve and maximize value delivery. However, these experiments are usually somewhat constrained by existing investments across [people, processes, and technology](./value-delivery-resources.md). Certain standards and conventions are established to optimize the value stream that may improve or hinder the organization's ability to change. Teams may grow or shrink in this stage.
 
-## Sustain
+### Sustain
 
 Well-established capabilities are often moved to a "keep the lights on" lifecycle stage of maintenance; fixing issues on a constrained budget investment. Teams tend to shrink in this stage.
 
-## Retire
+### Retire
 
 Some investment and focus is necessary to fully retire a capability from the business portfolio. Teams often shrink in this stage, but may actually require growth if "Sustain" investments were already incredibly lean and more effort is required to retire the capability.
 
