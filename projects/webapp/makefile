@@ -37,6 +37,12 @@ docker_tag:=ourchitecture/books/bit-chomping
 
 all: check install
 
+.PHONY: release
+release:
+	@rm --recursive --force ../../docs/ \
+	&& mkdir ../../docs/ \
+	&& cp --recursive ./dist/* ../../docs/
+
 .PHONY: init
 init:
 ifeq ("$(skip_init)",$(filter "$(skip_init)","0" "no" "false"))
