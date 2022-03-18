@@ -19,3 +19,7 @@ install: book website
 start:
 	@cd ./projects/website/ \
 	&& make start
+
+.PHONY: pr
+pr:
+	@git-town new-pull-request
