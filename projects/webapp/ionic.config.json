@@ -1,0 +1,7 @@
+{
+  "name": "bit-chomping",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
