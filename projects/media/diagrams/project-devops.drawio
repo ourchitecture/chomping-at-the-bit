@@ -1,0 +1,58 @@
+<mxfile host="65bd71144e">
+    <diagram id="KZ1J1YOeX5_IQqGvx77X" name="Page-1">
+        <mxGraphModel dx="1684" dy="1353" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="7" style="edgeStyle=none;html=1;fontSize=28;strokeWidth=5;" parent="1" source="2" target="4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Execute task" style="rounded=1;whiteSpace=wrap;html=1;fontSize=28;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="70" width="280" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=28;strokeWidth=5;" parent="1" source="3" target="2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Developer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=28;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="30" width="110" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Yes" style="edgeStyle=none;html=1;fontSize=28;strokeWidth=5;" parent="1" source="4" target="5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="No" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=28;strokeWidth=5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="4" target="10" edge="1">
+                    <mxGeometry x="-0.8614" relative="1" as="geometry">
+                        <mxPoint x="330" y="560" as="sourcePoint"/>
+                        <mxPoint y="-1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="In container?" style="rhombus;whiteSpace=wrap;html=1;fontSize=28;" parent="1" vertex="1">
+                    <mxGeometry x="225" y="300" width="250" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="No" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=28;strokeWidth=5;" parent="1" source="5" target="11" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Yes" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=28;strokeWidth=5;" parent="1" source="5" target="15" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Container file system?" style="rhombus;whiteSpace=wrap;html=1;fontSize=28;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="300" width="250" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Execute native task" style="rounded=1;whiteSpace=wrap;html=1;fontSize=28;" parent="1" vertex="1">
+                    <mxGeometry x="960" y="880" width="280" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fontSize=28;strokeWidth=5;" parent="1" source="11" target="10" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Mount host file system as volume" style="rounded=1;whiteSpace=wrap;html=1;fontSize=28;" parent="1" vertex="1">
+                    <mxGeometry x="585" y="660" width="280" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=28;strokeWidth=5;" parent="1" source="15" target="10" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Copy file system items from host into container" style="rounded=1;whiteSpace=wrap;html=1;fontSize=28;" parent="1" vertex="1">
+                    <mxGeometry x="960" y="355" width="280" height="140" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

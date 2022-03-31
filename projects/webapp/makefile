@@ -12,196 +12,87 @@
 # `docker` developer:
 #   Run `make` commands with "tool=docker" e.g. `make check tool=docker`.
 #
-# `yarn` developer:
-#   Run `make` commands with "tool=yarn" e.g. `make check tool=yarn`.
-#
-# `npm` developer:
-#   Run `make` commands with "tool=npm" e.g. `make check tool=npm`.
+# `yarn` and `npm` developers:
+#   For consistency, we ask that you use either `podman` or `docker`.
+#   Though, you'll find that standard commands should work.
 ################################################################################
 
-# tool=[yarn|podman|docker]
-tool:=yarn
+app_port:=80
 
-# env=[container|host]
-env:=container
+# tool=[docker|podman]
+tool:=docker
 
-# skip_init=[0|1]
-# if set to "1", the init task will be skipped
-skip_init:=0
+# See each stage name listed in the multi-stage dockerfile ("docker_file_path")
+docker_target:=production
 
-docker_file_path:=./docker/Dockerfile
-docker_target:=development
-docker_tag:=ourchitecture/books/bit-chomping
+docker_tag:=ourchitecture/chomping-at-the-bit:local
+docker_file_path:=./Dockerfile
+docker_context:=./
+docker_name:=chomping-at-the-bit
+docker_host_port:=8080
 
-.DEFAULT_GOAL:=start
+.DEFAULT_GOAL:=check
 
-all: check install
+all: build check
+
+.PHONY: build
+build:
+	@DOCKER_FILE_PATH=$(docker_file_path) \
+	TAG=$(docker_tag) \
+	CONTEXT=$(docker_context) \
+	./build.sh
+
+.PHONY: start
+start: build
+	@APP_PORT=$(app_port) \
+	HOST_PORT=$(docker_host_port) \
+	TAG=$(docker_tag) \
+	NAME=$(docker_name) \
+	./start.sh
+
+.PHONY: stop
+stop:
+	@NAME="$(docker_name)" \
+	RUNTIME_ENV=$(env) \
+	./stop.sh
+
+.PHONY: restart
+restart: stop start
+
+.PHONY: check-lint
+check-lint:
+	@DOCKER_FILE_PATH=$(docker_file_path) \
+	TAG=$(docker_tag) \
+	CONTEXT=$(docker_context) \
+	./lint.sh
+
+lint: check-lint
+check-styles: check-lint
+
+.PHONY: check-unit-tests
+check-unit-tests:
+	@DOCKER_FILE_PATH=$(docker_file_path) \
+	TAG=$(docker_tag) \
+	CONTEXT=$(docker_context) \
+	./unit-tests.sh
+
+check-unit: check-unit-tests
+unit-tests: check-unit-tests
+unit: check-unit-tests
+
+.PHONY: check-e2e-tests
+check-e2e-tests:
+	@DOCKER_FILE_PATH=$(docker_file_path) \
+	TAG=$(docker_tag) \
+	CONTEXT=$(docker_context) \
+	./e2e-tests.sh
+
+check-e2e: check-e2e-tests
+e2e-tests: check-e2e-tests
+e2e: check-e2e-tests
+
+check: check-lint check-unit-tests check-e2e-tests
 
 .PHONY: release
 release:
-	@rm --recursive --force ../../docs/ \
-	&& mkdir ../../docs/ \
-	&& cp --recursive ./dist/* ../../docs/
-
-.PHONY: init
-init:
-ifeq ("$(skip_init)",$(filter "$(skip_init)","0" "no" "false"))
-ifeq '$(tool)' 'yarn'
-	@yarn \
-	&& ./node_modules/cypress/bin/cypress install \
-	&& echo 'y' | npx browserslist@latest --update-db
-else ifeq ("$(tool)",$(filter "$(tool)","docker" "podman"))
-	@$(tool) build \
-		--tag="$(docker_tag)" \
-		--file="${docker_file_path}" \
-		--target="${docker_target}" \
-		./
-endif
-endif
-
-.PHONY: dev
-dev:
-ifeq '$(env)' 'container'
-	$(error Error: The "env" variable must be set to "host" for the target $@)
-endif
-ifeq ("$(tool)",$(filter "$(tool)","docker" "podman"))
-	@make init
-	@MSYS_NO_PATHCONV=1 \
-	$(tool) run \
-		--rm \
-		--interactive \
-		--tty \
-		--volume="$(shell pwd)":/app \
-		--workdir=/app \
-		$(docker_tag) \
-		/bin/bash
-endif
-
-.PHONY: check-lint
-check-lint: init
-ifeq '$(tool)' 'yarn'
-	@yarn lint
-else ifeq ("$(tool)",$(filter "$(tool)","podman" "docker"))
-	@MSYS_NO_PATHCONV=1 \
-	$(tool) run \
-		--rm \
-		--interactive \
-		--volume="$(shell pwd)":/app \
-		--workdir=/app \
-		$(docker_tag) \
-		make $@
-endif
-
-test-lint: check-lint
-lint: check-lint
-
-.PHONY: check-unit
-check-unit: init
-ifeq '$(tool)' 'yarn'
-	@yarn test:unit
-else ifeq ("$(tool)",$(filter "$(tool)","podman" "docker"))
-	@MSYS_NO_PATHCONV=1 \
-	$(tool) run \
-		--rm \
-		--interactive \
-		--volume="$(shell pwd)":/app \
-		--workdir=/app \
-		$(docker_tag) \
-		make $@
-endif
-
-test-unit: check-unit
-unit: check-unit
-
-.PHONY: check-e2e
-check-e2e: init
-ifeq '$(tool)' 'yarn'
-	@yarn test:e2e --headless
-else ifeq ("$(tool)",$(filter "$(tool)","podman" "docker"))
-	@MSYS_NO_PATHCONV=1 \
-	$(tool) run \
-		--rm \
-		--interactive \
-		--volume="$(shell pwd)":/app \
-		--workdir=/app \
-		$(docker_tag) \
-		make $@
-endif
-
-test-e2e: check-e2e
-e2e: check-e2e
-
-.PHONY: check
-check: init
-ifeq '$(tool)' 'yarn'
-	@yarn lint \
-	&& yarn test:unit \
-	&& yarn test:e2e --headless
-else ifeq ("$(tool)",$(filter "$(tool)","podman" "docker"))
-	@MSYS_NO_PATHCONV=1 \
-	$(tool) run \
-		--rm \
-		--interactive \
-		--volume="$(shell pwd)":/app \
-		--workdir=/app \
-		$(docker_tag) \
-		make $@
-endif
-
-test: check
-
-.PHONY: install
-install: init
-ifeq '$(tool)' 'yarn'
-	@yarn build
-else ifeq ("$(tool)",$(filter "$(tool)","podman" "docker"))
-	@MSYS_NO_PATHCONV=1 \
-	$(tool) run \
-		--rm \
-		--interactive \
-		--volume="$(shell pwd)":/app \
-		--workdir=/app \
-		$(docker_tag) \
-		make $@
-endif
-
-build: install
-
-.PHONY: start
-start: init
-ifeq '$(tool)' 'yarn'
-	@yarn serve
-else ifeq ("$(tool)",$(filter "$(tool)","podman" "docker"))
-	@MSYS_NO_PATHCONV=1 \
-	$(tool) run \
-		--rm \
-		--interactive \
-		--volume="$(shell pwd)":/app \
-		--workdir=/app \
-		$(docker_tag) \
-		make $@
-endif
-
-serve: start
-
-# IMPORTANT: one-time task! This task was executed to create the initial project.
-# The command is documented here for posterity's sake.
-# - `echo 'N' |` to pipe an answer to the prompt "? Create free Ionic account? No"
-# - `npm exec ...` to create the new application
-# - `shopt -s gotglob` to include "dotfiles" (e.g. ".gitignore") in file operations
-# - `mv ...` to move the files out of the sub-directory to the current directory
-# - `rm ...` to remove the sub-directory
-# .PHONY: create
-# create:
-# 	@echo 'N' | \
-# 	npm exec \
-# 		--yes \
-# 		-- \
-# 		@ionic/cli \
-# 			start \
-# 			bit-chomping \
-# 			--type=vue \
-# 			blank \
-# 	&& shopt -s dotglob \
-# 	&& mv ./bit-chomping/ ./ \
-# 	&& rm --recursive --force ./bit-chomping/
+	@./release.sh
