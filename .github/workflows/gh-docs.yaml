@@ -7,7 +7,7 @@ on:
       - "makefile"
       - "mkdocs.yml"
       - ".github/workflows/gh-docs.yml"
-      - "projects/website/**"
+      - "projects/webapp/**"
 
 jobs:
   generate:
