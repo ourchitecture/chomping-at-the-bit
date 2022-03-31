@@ -16,6 +16,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      # create a release
+      # navigate to project root
+      # commit release files back to source control
       - name: documentation
         working-directory: ./projects/webapp/
         run: |
