@@ -6,7 +6,7 @@ on:
     paths:
       - "makefile"
       - "mkdocs.yml"
-      - ".github/workflows/gh-docs.yml"
+      - ".github/workflows/gh-docs.yaml"
       - "projects/webapp/**"
 
 jobs:
