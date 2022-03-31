@@ -1,0 +1,28 @@
+name: gh-docs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "makefile"
+      - "mkdocs.yml"
+      - ".github/workflows/gh-docs.yml"
+      - "projects/website/**"
+
+jobs:
+  generate:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: documentation
+        working-directory: ./projects/webapp/
+        run: |
+          make release
+          cd ../../
+          git config user.name our-github-actions
+          git config user.email ericis@users.noreply.github.com
+          git add .
+          git commit -m 'docs: auto-generate documentation [skip ci]'
+          git push
