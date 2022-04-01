@@ -41,7 +41,7 @@ jobs:
       - name: documentation
         working-directory: ./projects/webapp/
         run: |
-          chmod +x ./release.sh
+          chmod +x ./*.sh
           make release
           sudo chown -R $(whoami) ../../docs/
 
