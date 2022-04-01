@@ -14,8 +14,7 @@
       </ion-header>
 
       <div id="container">
-        <strong>Testing a docs build 002</strong>
-        <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+        <a href="./">UI Components</a>
       </div>
     </ion-content>
   </ion-page>

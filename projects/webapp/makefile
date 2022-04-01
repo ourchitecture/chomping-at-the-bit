@@ -19,17 +19,17 @@
 
 app_port:=80
 
-# tool=[docker|podman]
+# tool=[docker|podman|yarn]
 tool:=docker
 
-# See each stage name listed in the multi-stage dockerfile ("docker_file_path")
-docker_target:=production
+# See each stage name listed in the multi-stage dockerfile ("container_file_path")
+container_target:=production
 
-docker_tag:=ourchitecture/chomping-at-the-bit:local
-docker_file_path:=./Dockerfile
-docker_context:=./
-docker_name:=chomping-at-the-bit
-docker_host_port:=8080
+container_tag:=ourchitecture/chomping-at-the-bit:local
+container_file_path:=./Dockerfile
+container_context:=./
+container_name:=chomping-at-the-bit
+container_host_port:=8080
 
 .DEFAULT_GOAL:=check
 
@@ -37,23 +37,28 @@ all: build check
 
 .PHONY: build
 build:
-	@DOCKER_FILE_PATH=$(docker_file_path) \
-	TAG=$(docker_tag) \
-	CONTEXT=$(docker_context) \
+	@FILE_PATH=$(container_file_path) \
+	TAG=$(container_tag) \
+	CONTEXT=$(container_context) \
+	TOOL=$(tool) \
 	./build.sh
 
 .PHONY: start
-start: build
+start:
 	@APP_PORT=$(app_port) \
-	HOST_PORT=$(docker_host_port) \
-	TAG=$(docker_tag) \
-	NAME=$(docker_name) \
+	HOST_PORT=$(container_host_port) \
+	FILE_PATH=$(container_file_path) \
+	TAG=$(container_tag) \
+	CONTEXT=$(container_context) \
+	TOOL=$(tool) \
 	./start.sh
+
+.PHONY: serve
+serve: start
 
 .PHONY: stop
 stop:
-	@NAME="$(docker_name)" \
-	RUNTIME_ENV=$(env) \
+	@TOOL=$(tool) \
 	./stop.sh
 
 .PHONY: restart
@@ -61,38 +66,59 @@ restart: stop start
 
 .PHONY: check-lint
 check-lint:
-	@DOCKER_FILE_PATH=$(docker_file_path) \
-	TAG=$(docker_tag) \
-	CONTEXT=$(docker_context) \
+	@FILE_PATH=$(container_file_path) \
+	TAG=$(container_tag) \
+	CONTEXT=$(container_context) \
+	TOOL=$(tool) \
 	./lint.sh
 
+.PHONY: lint
 lint: check-lint
+
+.PHONY: check-styles
 check-styles: check-lint
 
-.PHONY: check-unit-tests
-check-unit-tests:
-	@DOCKER_FILE_PATH=$(docker_file_path) \
-	TAG=$(docker_tag) \
-	CONTEXT=$(docker_context) \
-	./unit-tests.sh
+.PHONY: check-unit-test
+check-unit-test:
+	@FILE_PATH=$(container_file_path) \
+	TAG=$(container_tag) \
+	CONTEXT=$(container_context) \
+	TOOL=$(tool) \
+	./unit-test.sh
 
-check-unit: check-unit-tests
-unit-tests: check-unit-tests
-unit: check-unit-tests
+.PHONY: check-unit
+check-unit: check-unit-test
 
-.PHONY: check-e2e-tests
-check-e2e-tests:
-	@DOCKER_FILE_PATH=$(docker_file_path) \
-	TAG=$(docker_tag) \
-	CONTEXT=$(docker_context) \
-	./e2e-tests.sh
+.PHONY: unit-test
+unit-test: check-unit-test
 
-check-e2e: check-e2e-tests
-e2e-tests: check-e2e-tests
-e2e: check-e2e-tests
+.PHONY: unit
+unit: check-unit-test
 
-check: check-lint check-unit-tests check-e2e-tests
+.PHONY: check-e2e-test
+check-e2e-test:
+	@FILE_PATH=$(container_file_path) \
+	TAG=$(container_tag) \
+	CONTEXT=$(container_context) \
+	TOOL=$(tool) \
+	./e2e-test.sh
+
+.PHONY: check-e2e
+check-e2e: check-e2e-test
+
+.PHONY: e2e-test
+e2e-test: check-e2e-test
+
+.PHONY: e2e
+e2e: check-e2e-test
+
+.PHONY: check
+check: check-lint check-unit-test check-e2e-test
+
+.PHONY: test
+test: check
 
 .PHONY: release
 release: check
-	@./release.sh
+	@TOOL=$(tool) \
+	./release.sh

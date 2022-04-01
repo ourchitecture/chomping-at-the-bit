@@ -2,13 +2,16 @@
 
 set -eu
 
-if ! command -v docker >/dev/null 2>&1; then
-    echo "The Docker CLI ('docker') could not be found and must be installed." 1>&2
+tool="${TOOL:-docker}"
+
+if ! command -v ${tool} >/dev/null 2>&1; then
+    echo "The CLI '${tool}' could not be found and must be installed." 1>&2
     exit 1
 fi
 
 target_root="./"
 target_path="${target_root}dist/"
+release_path="../../docs/"
 
 if [ -d "${target_path}" ]; then
   rm --recursive --force "${target_path}"
@@ -16,45 +19,47 @@ fi
 
 mkdir "${target_path}"
 
-docker_target="production_src"
-docker_tag="ourchitecture/chomping-at-the-bit:local-${docker_target}"
-docker_file_path="./Dockerfile"
-docker_context="./"
-docker_name="ourchitecture-bit-chomping-release"
+if [ "$tool" == "yarn" ]; then
+  yarn && yarn build
+else
+  container_target="production_src"
+  container_tag="ourchitecture/chomping-at-the-bit:local-${container_target}"
+  container_file_path="./Dockerfile"
+  container_context="./"
+  container_name="ourchitecture-bit-chomping-release"
 
-docker build \
-  --tag="${docker_tag}" \
-  --file="${docker_file_path}" \
-  --target="${docker_target}" \
-  "${docker_context}"
+  ${tool} build \
+    --tag="${container_tag}" \
+    --file="${container_file_path}" \
+    --target="${container_target}" \
+    "${container_context}"
 
-echo 'Starting production distribution container...'
-docker run \
-  --name="${docker_name}" \
-  --detach \
-  --interactive \
-  "${docker_tag}"
-echo "Production distribution container successfully started with the name \"${docker_name}\"."
+  echo 'Starting production distribution container...'
+  ${tool} run \
+    --name="${container_name}" \
+    --detach \
+    --interactive \
+    "${container_tag}"
+  echo "Production distribution container successfully started with the name \"${container_name}\"."
 
-container_id=$( \
-  docker ps \
-    --all \
-    --quiet \
-    --filter "name=^${docker_name}$" \
-)
-echo "Production distribution container id: \"${container_id}\"."
+  container_id=$( \
+    ${tool} ps \
+      --all \
+      --quiet \
+      --filter "name=^${container_name}$" \
+  )
+  echo "Production distribution container id: \"${container_id}\"."
 
-echo 'Copying production distribution files...'
-docker cp \
-  "${container_id}:/tmp/our/src/dist/" \
-  "${target_root}"
-echo "Successfully copied production distribution file to \"${target_path}\"."
+  echo 'Copying production distribution files...'
+  ${tool} cp \
+    "${container_id}:/tmp/our/src/dist/" \
+    "${target_root}"
+  echo "Successfully copied production distribution file to \"${target_path}\"."
 
-echo 'Removing production distribution container...'
-docker rm --force "${docker_name}"
-echo 'Successfully removed production distribution container.'
-
-release_path="../../docs/"
+  echo 'Removing production distribution container...'
+  ${tool} rm --force "${container_name}"
+  echo 'Successfully removed production distribution container.'
+fi
 
 echo 'Releasing distribution locally...'
 
