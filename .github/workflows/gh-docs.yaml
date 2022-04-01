@@ -22,6 +22,7 @@ jobs:
       - name: documentation
         working-directory: ./projects/webapp/
         run: |
+          chmod +x ./release.sh
           make release
           cd ../../
           git config user.name our-github-actions
