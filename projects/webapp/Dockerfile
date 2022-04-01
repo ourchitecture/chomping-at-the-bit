@@ -16,7 +16,7 @@ ARG NODE_IMAGE="${NODE_IMAGE_SOURCE}:${NODE_IMAGE_TAG}@${NODE_IMAGE_HASH}"
 
 ARG NGINX_OS="alpine"
 ARG NGINX_IMAGE_NAME="nginx"
-ARG NGINX_VERSION="1.21.6"
+ARG NGINX_VERSION="1.20.2"
 ARG NGINX_IMAGE="${STANDARD_IMAGE_HOST_PATH}${NGINX_IMAGE_NAME}:${NGINX_VERSION}-${NGINX_OS}"
 ARG NGINX_STATIC_SITE_HOSTING_PATH="/usr/share/nginx/html/"
 
@@ -111,7 +111,9 @@ RUN yarn build
 ################################################################################
 FROM ${NGINX_IMAGE} as production
 
-RUN rm -rf /usr/share/nginx/html/ \
-    && mkdir -p /usr/share/nginx/html/chomping-at-the-bit/
+WORKDIR /app
 
-COPY --from=production_src /tmp/our/src/dist/ /usr/share/nginx/html/chomping-at-the-bit/
+COPY --from=production_src /tmp/our/src/nginx.conf /etc/nginx/nginx.conf
+COPY --from=production_src /tmp/our/src/dist/ /app/chomping-at-the-bit/
+
+# RUN cp /app/index.html /app/404.html

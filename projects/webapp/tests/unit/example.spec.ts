@@ -3,7 +3,7 @@ import HomePage from '@/views/HomePage.vue'
 
 describe('HomePage.vue', () => {
   it('renders home vue', () => {
-    const wrapper = mount(HomePage)
-    expect(wrapper.text()).toMatch('Testing a docs build 002')
+    const wrapper = mount(HomePage).find("#container")
+    expect(wrapper.text()).toMatch('UI Components')
   })
 })
