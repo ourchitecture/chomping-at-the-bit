@@ -94,5 +94,5 @@ e2e: check-e2e-tests
 check: check-lint check-unit-tests check-e2e-tests
 
 .PHONY: release
-release:
+release: check
 	@./release.sh
