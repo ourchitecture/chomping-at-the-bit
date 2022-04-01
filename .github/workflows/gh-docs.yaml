@@ -1,5 +1,18 @@
 name: gh-docs
 
+# place "magic strings" used in the workflow here for convenient maintenance
+env:
+  # this variable is used to compare against forked repositories
+  OUR_REPO: "ourchitecture/chomping-at-the-bit"
+  OUR_AUTODOC_COMMIT: "docs: auto-generated documentation"
+  OUR_AUTODOC_DESC: "Automatically generated documentation that requires a PR, because the main branch is protected. The  @ourchitecture/chomping-at-the-bit-maintainers team will review."
+  OUR_AUTODOC_LABELS: "documentation"
+  # this variable uses a system account since there are permission issues when assigning teams
+  # see: https://github.com/peter-evans/create-pull-request/issues/155#issuecomment-611904487
+  OUR_AUTODOC_REVIEWERS: "ourchitectureio"
+  OUR_AUTODOC_ASSIGNEES: "ourchitectureio"
+  OUR_SKIP_CI: "[skip ci]"
+
 on:
   push:
     branches: [main]
@@ -24,9 +37,27 @@ jobs:
         run: |
           chmod +x ./release.sh
           make release
-          cd ../../
-          git config user.name our-github-actions
-          git config user.email ericis@users.noreply.github.com
-          git add .
-          git commit -m 'docs: auto-generate documentation [skip ci]'
-          git push
+          sudo chown -R $(whoami) ./docs
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        # Avoid creating another PR to the forked repo when
+        # merging auto-docs back into forks can trigger a
+        # "push" build action from the fork's "main" branch.
+        # - push, not pull_request
+        # - primary repo, not forks
+        # examples of the issue can be seen here:
+        # - "Debug push": https://github.com/ourchitecture/hello-cloud/runs/4733230834?check_suite_focus=true
+        # - Forked "Debug push": https://github.com/ericis/hello-cloud/runs/4733253190?check_suite_focus=true
+        if: ${{ github.event_name == 'push' && github.repository == env.OUR_REPO }}
+        with:
+          token: ${{ secrets.GH_TOKEN_AUTO_PR }}
+          title: ${{ env.OUR_AUTODOC_COMMIT }}
+          signoff: true
+          commit-message: "${{ env.OUR_AUTODOC_COMMIT }} ${{ env.OUR_SKIP_CI }}"
+          body: ${{ env.OUR_AUTODOC_DESC }}
+          labels: ${{ env.OUR_AUTODOC_LABELS }}
+          assignees: ${{ env.OUR_AUTODOC_ASSIGNEES }}
+          # a PAT was generated to support this field
+          # see: https://github.com/peter-evans/create-pull-request/issues/155
+          team-reviewers: ${{ env.OUR_AUTODOC_REVIEWERS }}
