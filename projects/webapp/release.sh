@@ -72,4 +72,7 @@ mv ${target_path}* ${release_path}
 # remove ./dist/
 rm --recursive --force ${target_path}
 
+# create 404 page for GH pages to handle client-side routing reloads
+cp ${release_path}index.html ${release_path}404.html
+
 echo "Successfully released distribution locally to \"${release_path}\"."
