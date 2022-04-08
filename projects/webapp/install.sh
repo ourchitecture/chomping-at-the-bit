@@ -61,7 +61,7 @@ else
   echo 'Successfully removed production distribution container.'
 fi
 
-echo 'Releasing distribution locally...'
+echo 'Installing the distribution locally...'
 
 # remove if exists ../../docs/
 if [ -d "${release_path}" ]; then
@@ -80,4 +80,4 @@ rm --recursive --force ${target_path}
 # create 404 page for GH pages to handle client-side routing reloads
 cp ${release_path}index.html ${release_path}404.html
 
-echo "Successfully released distribution locally to \"${release_path}\"."
+echo "Successfully installed the distribution locally under \"${release_path}\"."
