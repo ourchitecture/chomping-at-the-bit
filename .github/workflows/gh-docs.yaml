@@ -42,7 +42,7 @@ jobs:
         working-directory: ./projects/webapp/
         run: |
           chmod +x ./*.sh
-          make release
+          make install
           sudo chown -R $(whoami) ../../docs/
 
       - name: Create Pull Request

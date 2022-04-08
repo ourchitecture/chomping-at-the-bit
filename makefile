@@ -1,4 +1,4 @@
-.DEFAULT_GOAL:=install
+.DEFAULT_GOAL:=start
 
 all: install
 
@@ -7,18 +7,18 @@ book:
 	@cd ./projects/book/ \
 	&& make
 
-.PHONY: website
-website:
-	@cd ./projects/website/ \
-	&& make
+.PHONY: docs
+docs:
+	@cd ./projects/webapp/ \
+	&& make install
 
 .PHONY: install
-install: book website
+install: book docs
 
 .PHONY: start
 start:
-	@cd ./projects/website/ \
-	&& make start
+	@cd ./projects/webapp/ \
+	&& make start tool=yarn
 
 .PHONY: pr
 pr:
