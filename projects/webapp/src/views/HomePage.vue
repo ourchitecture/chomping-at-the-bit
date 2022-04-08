@@ -20,7 +20,7 @@
           contributors, are all challenged to integrate effective and efficient strategies
           across the areas of business value, people, processes, and / or technology. The
           features of this website serve as a companion to the <em>free and open book</em>
-          &nbsp;<a href="../assets/book/chomping-at-the-bit.pdf" target="_blank">&quot;Chomping at the Bit&quot;</a>,
+          &nbsp;<a href="./assets/book/chomping-at-the-bit.pdf" target="_blank">&quot;Chomping at the Bit&quot;</a>,
           offering functional and interactive examples to learn from and apply.
         </p>
 
