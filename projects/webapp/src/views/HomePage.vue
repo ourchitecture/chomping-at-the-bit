@@ -2,14 +2,14 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Chomping at the Bit</ion-title>
+        <ion-title><ion-icon :icon="book"></ion-icon> Chomping at the Bit</ion-title>
       </ion-toolbar>
     </ion-header>
 
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Chomping at the Bit</ion-title>
+          <ion-title size="large"><ion-icon :icon="book"></ion-icon> Chomping at the Bit</ion-title>
         </ion-toolbar>
       </ion-header>
 
@@ -19,8 +19,8 @@
           Across business and technology, executives, leaders, management, and individual
           contributors, are all challenged to integrate effective and efficient strategies
           across the areas of business value, people, processes, and / or technology. The
-          features of this website serve as a companion to the free and open book
-          <a href="/assets/book/chomping-at-the-bit.pdf" target="_blank">&quot;Chomping at the Bit&quot;</a>,
+          features of this website serve as a companion to the <em>free and open book</em>
+          &nbsp;<a href="../assets/book/chomping-at-the-bit.pdf" target="_blank">&quot;Chomping at the Bit&quot;</a>,
           offering functional and interactive examples to learn from and apply.
         </p>
 
@@ -55,10 +55,13 @@
 import {
   IonContent,
   IonHeader,
+  IonIcon,
   IonPage,
   IonTitle,
   IonToolbar,
 } from '@ionic/vue';
+
+import { book } from 'ionicons/icons';
 
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Keyboard, Pagination, Navigation } from "swiper";
@@ -79,6 +82,7 @@ export default defineComponent({
   components: {
     IonContent,
     IonHeader,
+    IonIcon,
     IonPage,
     IonTitle,
     IonToolbar,
@@ -90,6 +94,7 @@ export default defineComponent({
   },
   setup() {
     return {
+      book,
       modules: [
         Keyboard,
         Pagination,
