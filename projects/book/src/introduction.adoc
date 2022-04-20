@@ -2,7 +2,7 @@
 
 Hello and welcome! You have stumbled upon an evolving, "open book"; a free and open-source book with https://www.ourchitecture.io/chomping-at-the-bit/license/[a permissive ((license))].
 
-Our goal is to drastically improve ((digital transformation)) efforts by establishing a standardized language for digital value delivery along with a collection of patterns that you can customize and apply in your own organizations.
+This book's goal is to drastically improve ((digital transformation)) efforts by establishing a standardized language for digital value delivery along with a collection of patterns that you can customize and apply in your own organizations.
 
 Of course, these resources require time and effort. https://www.patreon.com/ourchitecture[Please support us.]
 

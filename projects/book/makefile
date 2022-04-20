@@ -3,6 +3,8 @@ tool=docker
 
 container_asciidoctor_tag:=asciidoctor/docker-asciidoctor:1.17
 
+output_file_path:=./projects/webapp/public/assets/book/chomping-at-the-bit.pdf
+
 .DEFAULT_GOAL:=install
 
 all: install
@@ -15,8 +17,10 @@ endif
 
 .PHONY: init
 init:
-	@$(tool) pull $(container_asciidoctor_tag) \
-	&& $(tool) tag $(container_asciidoctor_tag) asciidoctor
+ifndef OFFLINE
+	@$(tool) pull $(container_asciidoctor_tag)
+endif
+	@$(tool) tag $(container_asciidoctor_tag) asciidoctor
 
 .PHONY: help
 help: validate-tool init
@@ -42,7 +46,7 @@ install: validate-tool init
 		asciidoctor \
 		asciidoctor-pdf \
 			./projects/book/src/index.adoc \
-			--out-file ./projects/website/src/assets/documents/chomping-at-the-bit.pdf
+			--out-file $(output_file_path)
 
 .PHONY: pdf
 pdf: install

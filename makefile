@@ -1,5 +1,7 @@
 .DEFAULT_GOAL:=start
 
+tool:=yarn
+
 all: install
 
 .PHONY: book
@@ -18,7 +20,7 @@ install: book docs
 .PHONY: start
 start:
 	@cd ./projects/webapp/ \
-	&& make start tool=yarn
+	&& make start tool=$(tool)
 
 .PHONY: pr
 pr:

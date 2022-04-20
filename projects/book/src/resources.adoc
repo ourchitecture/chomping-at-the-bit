@@ -7,15 +7,48 @@
 The traditional Information Technology triangle of considering "People", "Process", and "Technology" has proved incredibly useful over the years, but has always missed a critical alignment segment: "((Value))" or even more fundamentally "((Why))?". Why would we bring these three together and for what purpose? What is their mission or https://simonsinek.com/discover/great-leaders-organizations-advance-a-just-cause/["just cause"] as ((Simon Sinek)) might put it?
 
 .Value delivery resources
-image::./assets/graphics/diagrams/value-delivery-resources.svg[]
+image::./assets/graphics/diagrams/value-delivery-resources.png[Diagram of value delivery resources]
 
 === Value
 
-Everything an organization does can be tied back to a value proposition or ((hypothesis)). Like any ((experiment)), the result may be failure. Even wasteful activities that started with a specific context of intentions, assumptions and expectations may have been wrong to begin with, wrong in hindsight or retrospect, or the context has changed and partially or completely no longer applies. The goal, of course, is to maximize value delivery and minimize waste. Customer value is often assumed, but it could be wrong to jump to the conclusion that priority is always given to a customer's value, because there are often many important stakeholders concerned with their own definitions of "value" as well as unique value delivery concerns. Operating an organization means prioritizing, balancing and maximizing value delivery across all concerned stakeholders.
+// themes:
+// - Customer Focus
+// - discovery through experimentation
+// - the cycle of strategy and execution
+// - Business Model Canvas
+// - Business Capability Modeling and Mapping
+// - Scale
+// - Industry
+// - From the Executive to the Individual Contributor and everyone in between
+
+All successful organizations share an origin story; an idea to generate value as a product or service for others. The best ideas are born out of a moving mission with a vision and values that invites other dreamers and investors to join the cause and to contribute; expanding and shaping the idea through a close collaboration of strategy and execution.
+
+In every industry, from the executive to the individual contributor and everyone in between, each person is tied to supporting and improving value delivery for the organization. An organization begins and grows iteratively through ideas as value propositions in the form of a hypothesis to test. Success or failure of each test is determined through a set of one or more objectives and certain measurable, key results (OKRs) that demons
+trate progress.
+
+
+// Any conversation on value delivery might benefit from beginning with a focus on the recipient or beneficiary of the value.
+
+// ideas don't matter as much as people and their ability to deliver
+
+Start-ups have already demonstrated that ideas can and will be replicated with varying degrees of success, sometimes challenging or even outpacing seemingly unbeatable competition. Ideas, it seems, may ultimately be less valuable than the people that deliver them and the tools and processes they employ along the way.
+
+// How many great ideas have fallen short of their potential?
+
+An organization's greatest asset might begin with high value ideas, but quickly shifts  people and their ability to deliver value effectively.  The greatest organizations have realized that people are their greatest asset
+
+// customers
+// value generation
+// value of people
+// value of great ideas
+
+People discover these ideas, informed from the organizational context they bare witness to.
+
+Everything an organization does can be tied back to a value proposition applied through proven theory and tested through ((hypothesis)). Like any ((experiment)), the result is often failure. Even wasteful activities that started with a specific context of intentions, assumptions and expectations may have been wrong to begin with, wrong in hindsight or retrospect, or the context has changed and partially or completely no longer applies. The goal, of course, is to maximize value delivery and minimize waste. Customer value is often assumed, but it could be wrong to jump to the conclusion that priority is always given to a customer's value, because there are often many important stakeholders concerned with their own definitions of "value" as well as unique value delivery concerns. Operating an organization means prioritizing, balancing and maximizing value delivery across all concerned stakeholders.
 
 === People
 
-Most every organization has people ((leadership)) for strategy and ((management)) for execution. Looking for opportunities through the lens of "People" can offer unique insights into ((team structures)), ((telecommuting)) or "((work from home))" (((WFH))), ((diversity and inclusion)), ((talent management)) including ((recruiting)), ((upskilling)) and ((reskilling)), ((internships)) and https://www.themuse.com/advice/what-is-a-returnship-hint-something-you-probably-want-to-check-out-if-youre-returning-to-the-workforce[((returnships))] and more.
+Every organization develops roles that target ((leadership)) for strategic vision and alignment as well as ((management)) for execution. Looking for opportunities through the lens of "People" can offer unique insights into ((team structures)), ((telecommuting)) or "((work from home))" (((WFH))), ((diversity and inclusion)), ((talent management)) including ((recruiting)), ((upskilling)) and ((reskilling)), ((internships)) and https://www.themuse.com/advice/what-is-a-returnship-hint-something-you-probably-want-to-check-out-if-youre-returning-to-the-workforce[((returnships))] and more.
 
 Creating organizational structures around people, uninformed explicitly by the (((technology roadmap, roadmap))) can result in "((Conway's Law))".
 
