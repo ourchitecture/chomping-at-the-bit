@@ -15,7 +15,7 @@ Business Capability Models are often defined as a hierarchy with increasing gran
 It can be helpful to consider how customers or end-users interact with digital value. What channels expose the value to them? How do they experience value? What capabilities deliver value? And, what platforms enable those capabilities to be built and maintained?
 
 .Value delivery structures
-image::./assets/graphics/diagrams/value-delivery-structures.svg[Map of structures that support digital value delivery]
+image::./assets/graphics/diagrams/value-delivery-structures.png[Map of structures that support digital value delivery]
 
 ==== Digital Channels
 
