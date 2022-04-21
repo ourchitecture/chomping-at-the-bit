@@ -22,6 +22,16 @@ start:
 	@cd ./projects/webapp/ \
 	&& make start tool=$(tool)
 
+.PHONY: sync
+sync:
+	@git-town sync
+
+.PHONY: main
+main:
+	@git checkout main
+	@make sync
+	@git-town prune-branches
+
 .PHONY: pr
 pr:
 	@git-town new-pull-request
