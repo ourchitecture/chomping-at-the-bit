@@ -56,7 +56,7 @@
         </swiper>
 
         <div style="margin-top: 50px; text-align: center">
-          <a href="/avatars">Avatars Test Page</a>
+          <a href="./avatars">Avatars Test Page</a>
         </div>
       </div>
     </ion-content>
