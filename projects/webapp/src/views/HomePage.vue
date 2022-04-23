@@ -2,14 +2,22 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title><ion-icon :icon="book"></ion-icon> Chomping at the Bit</ion-title>
+        <ion-title><ion-icon :icon="icons.book"></ion-icon> Chomping at the Bit</ion-title>
+        <ion-buttons slot="end">
+          <ion-icon :icon="icons.theme.value"></ion-icon>
+          <ion-toggle @ionChange="toggleTheme()"></ion-toggle>
+        </ion-buttons>
       </ion-toolbar>
     </ion-header>
 
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large"><ion-icon :icon="book"></ion-icon> Chomping at the Bit</ion-title>
+          <ion-title size="large"><ion-icon :icon="icons.book"></ion-icon> Chomping at the Bit</ion-title>
+          <ion-buttons slot="end">
+          <ion-icon :icon="icons.theme.value"></ion-icon>
+          <ion-toggle @ionChange="toggleTheme()"></ion-toggle>
+          </ion-buttons>
         </ion-toolbar>
       </ion-header>
 
@@ -53,15 +61,17 @@
 
 <script lang="ts">
 import {
+  IonButtons,
   IonContent,
   IonHeader,
   IonIcon,
   IonPage,
   IonTitle,
+  IonToggle,
   IonToolbar,
 } from '@ionic/vue';
 
-import { book } from 'ionicons/icons';
+import { book, moon, sunnyOutline } from 'ionicons/icons';
 
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Keyboard, Pagination, Navigation } from "swiper";
@@ -71,7 +81,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import '@ionic/vue/css/ionic-swiper.css';
 
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 import OurMission from '../components/OurMission.vue';
 import OurValues from '../components/OurValues.vue';
@@ -80,11 +90,13 @@ import OurVision from '../components/OurVision.vue';
 export default defineComponent({
   name: 'OurHomePage',
   components: {
+    IonButtons,
     IonContent,
     IonHeader,
     IonIcon,
     IonPage,
     IonTitle,
+    IonToggle,
     IonToolbar,
     OurMission,
     OurValues,
@@ -93,13 +105,25 @@ export default defineComponent({
     SwiperSlide,
   },
   setup() {
+
+    let themeIcon = ref(sunnyOutline);
+    let isDarkMode = false;
+
     return {
-      book,
+      icons: {
+        book,
+        theme: themeIcon,
+      },
       modules: [
         Keyboard,
         Pagination,
         Navigation,
       ],
+      toggleTheme: () => {
+        isDarkMode = !isDarkMode;
+        themeIcon.value = isDarkMode ? moon : sunnyOutline;
+        document.body.classList.toggle('dark', isDarkMode);
+      },
     };
   },
 });
@@ -108,6 +132,7 @@ export default defineComponent({
 <style scoped>
 .swiper-slide {
   height: auto;
+  margin: auto;
 }
 
 ion-card {
