@@ -3,4 +3,4 @@
  * (C) Ionic http://ionicframework.com - MIT License
  */
 const r=(e,n)=>{const t="40px",r="0px",a="back"===n.direction,c=n.enteringEl,s=n.leavingEl,l=(0,o.g)(c),u=l.querySelector("ion-toolbar"),d=(0,i.c)();if(d.addElement(l).fill("both").beforeRemoveClass("ion-page-invisible"),a?d.duration(n.duration||200).easing("cubic-bezier(0.47,0,0.745,0.715)"):d.duration(n.duration||280).easing("cubic-bezier(0.36,0.66,0.04,1)").fromTo("transform",`translateY(${t})`,`translateY(${r})`).fromTo("opacity",.01,1),u){const e=(0,i.c)();e.addElement(u),d.addAnimation(e)}if(s&&a){d.duration(n.duration||200).easing("cubic-bezier(0.47,0,0.745,0.715)");const e=(0,i.c)();e.addElement((0,o.g)(s)).onFinish((n=>{1===n&&e.elements.length>0&&e.elements[0].style.setProperty("display","none")})).fromTo("transform",`translateY(${r})`,`translateY(${t})`).fromTo("opacity",1,0),d.addAnimation(e)}return d}}}]);
-//# sourceMappingURL=753.f5be3e5b.js.map
+//# sourceMappingURL=753.9cf44316.js.map
