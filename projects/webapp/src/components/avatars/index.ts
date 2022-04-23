@@ -1,133 +1,188 @@
-import OurAvatar0101 from './avatar-01-01.vue';
-import OurAvatar0102 from './avatar-01-02.vue';
-import OurAvatar0103 from './avatar-01-03.vue';
-import OurAvatar0104 from './avatar-01-04.vue';
-import OurAvatar0105 from './avatar-01-05.vue';
-import OurAvatar0106 from './avatar-01-06.vue';
-import OurAvatar0107 from './avatar-01-07.vue';
-import OurAvatar0108 from './avatar-01-08.vue';
-import OurAvatar0109 from './avatar-01-09.vue';
-import OurAvatar0110 from './avatar-01-10.vue';
-import OurAvatar0111 from './avatar-01-11.vue';
-import OurAvatar0112 from './avatar-01-12.vue';
-import OurAvatar0113 from './avatar-01-13.vue';
-import OurAvatar0201 from './avatar-02-01.vue';
-import OurAvatar0202 from './avatar-02-02.vue';
-import OurAvatar0203 from './avatar-02-03.vue';
-import OurAvatar0204 from './avatar-02-04.vue';
-import OurAvatar0205 from './avatar-02-05.vue';
-import OurAvatar0206 from './avatar-02-06.vue';
-import OurAvatar0207 from './avatar-02-07.vue';
-import OurAvatar0208 from './avatar-02-08.vue';
-import OurAvatar0209 from './avatar-02-09.vue';
-import OurAvatar0210 from './avatar-02-10.vue';
-import OurAvatar0211 from './avatar-02-11.vue';
-import OurAvatar0212 from './avatar-02-12.vue';
-import OurAvatar0213 from './avatar-02-13.vue';
+import OurAvatar1 from './avatar-01-01.vue';
+import OurAvatar2 from './avatar-01-02.vue';
+import OurAvatar3 from './avatar-01-03.vue';
+import OurAvatar4 from './avatar-01-04.vue';
+import OurAvatar5 from './avatar-01-05.vue';
+import OurAvatar6 from './avatar-01-06.vue';
+import OurAvatar7 from './avatar-01-07.vue';
+import OurAvatar8 from './avatar-01-08.vue';
+import OurAvatar9 from './avatar-01-09.vue';
+import OurAvatar10 from './avatar-01-10.vue';
+import OurAvatar11 from './avatar-01-11.vue';
+import OurAvatar12 from './avatar-01-12.vue';
+import OurAvatar13 from './avatar-01-13.vue';
+import OurAvatar14 from './avatar-01-14.vue';
+import OurAvatar15 from './avatar-01-15.vue';
+import OurAvatar16 from './avatar-01-16.vue';
+import OurAvatar17 from './avatar-01-17.vue';
+import OurAvatar18 from './avatar-01-18.vue';
+import OurAvatar19 from './avatar-01-19.vue';
+import OurAvatar20 from './avatar-02-01.vue';
+import OurAvatar21 from './avatar-02-02.vue';
+import OurAvatar22 from './avatar-02-03.vue';
+import OurAvatar23 from './avatar-02-04.vue';
+import OurAvatar24 from './avatar-02-05.vue';
+import OurAvatar25 from './avatar-02-06.vue';
+import OurAvatar26 from './avatar-02-07.vue';
+import OurAvatar27 from './avatar-02-08.vue';
+import OurAvatar28 from './avatar-02-09.vue';
+import OurAvatar29 from './avatar-02-10.vue';
+import OurAvatar30 from './avatar-02-11.vue';
+import OurAvatar31 from './avatar-02-12.vue';
+import OurAvatar32 from './avatar-02-13.vue';
+import OurAvatar33 from './avatar-02-14.vue';
+import OurAvatar34 from './avatar-02-15.vue';
+import OurAvatar35 from './avatar-02-16.vue';
+import OurAvatar36 from './avatar-02-17.vue';
+import OurAvatar37 from './avatar-02-19.vue';
 
 export default [
   {
-    code: '01-01',
-    component: OurAvatar0101,
+    code: 'avatar-1',
+    component: OurAvatar1,
   },
   {
-    code: '01-02',
-    component: OurAvatar0102,
+    code: 'avatar-2',
+    component: OurAvatar2,
   },
   {
-    code: '01-03',
-    component: OurAvatar0103,
+    code: 'avatar-3',
+    component: OurAvatar3,
   },
   {
-    code: '01-04',
-    component: OurAvatar0104,
+    code: 'avatar-4',
+    component: OurAvatar4,
   },
   {
-    code: '01-05',
-    component: OurAvatar0105,
+    code: 'avatar-5',
+    component: OurAvatar5,
   },
   {
-    code: '01-06',
-    component: OurAvatar0106,
+    code: 'avatar-6',
+    component: OurAvatar6,
   },
   {
-    code: '01-07',
-    component: OurAvatar0107,
+    code: 'avatar-7',
+    component: OurAvatar7,
   },
   {
-    code: '01-08',
-    component: OurAvatar0108,
+    code: 'avatar-8',
+    component: OurAvatar8,
   },
   {
-    code: '01-09',
-    component: OurAvatar0109,
+    code: 'avatar-9',
+    component: OurAvatar9,
   },
   {
-    code: '01-10',
-    component: OurAvatar0110,
+    code: 'avatar-10',
+    component: OurAvatar10,
   },
   {
-    code: '01-11',
-    component: OurAvatar0111,
+    code: 'avatar-11',
+    component: OurAvatar11,
   },
   {
-    code: '01-12',
-    component: OurAvatar0112,
+    code: 'avatar-12',
+    component: OurAvatar12,
   },
   {
-    code: '01-13',
-    component: OurAvatar0113,
+    code: 'avatar-13',
+    component: OurAvatar13,
   },
   {
-    code: '02-01',
-    component: OurAvatar0201,
+    code: 'avatar-14',
+    component: OurAvatar14,
   },
   {
-    code: '02-02',
-    component: OurAvatar0202,
+    code: 'avatar-15',
+    component: OurAvatar15,
   },
   {
-    code: '02-03',
-    component: OurAvatar0203,
+    code: 'avatar-16',
+    component: OurAvatar16,
   },
   {
-    code: '02-04',
-    component: OurAvatar0204,
+    code: 'avatar-17',
+    component: OurAvatar17,
   },
   {
-    code: '02-05',
-    component: OurAvatar0205,
+    code: 'avatar-18',
+    component: OurAvatar18,
   },
   {
-    code: '02-06',
-    component: OurAvatar0206,
+    code: 'avatar-19',
+    component: OurAvatar19,
   },
   {
-    code: '02-07',
-    component: OurAvatar0207,
+    code: 'avatar-20',
+    component: OurAvatar20,
   },
   {
-    code: '02-08',
-    component: OurAvatar0208,
+    code: 'avatar-21',
+    component: OurAvatar21,
   },
   {
-    code: '02-09',
-    component: OurAvatar0209,
+    code: 'avatar-22',
+    component: OurAvatar22,
   },
   {
-    code: '02-10',
-    component: OurAvatar0210,
+    code: 'avatar-23',
+    component: OurAvatar23,
   },
   {
-    code: '02-11',
-    component: OurAvatar0211,
+    code: 'avatar-24',
+    component: OurAvatar24,
   },
   {
-    code: '02-12',
-    component: OurAvatar0212,
+    code: 'avatar-25',
+    component: OurAvatar25,
   },
   {
-    code: '02-13',
-    component: OurAvatar0213,
+    code: 'avatar-26',
+    component: OurAvatar26,
+  },
+  {
+    code: 'avatar-27',
+    component: OurAvatar27,
+  },
+  {
+    code: 'avatar-28',
+    component: OurAvatar28,
+  },
+  {
+    code: 'avatar-29',
+    component: OurAvatar29,
+  },
+  {
+    code: 'avatar-30',
+    component: OurAvatar30,
+  },
+  {
+    code: 'avatar-31',
+    component: OurAvatar31,
+  },
+  {
+    code: 'avatar-32',
+    component: OurAvatar32,
+  },
+  {
+    code: 'avatar-33',
+    component: OurAvatar33,
+  },
+  {
+    code: 'avatar-34',
+    component: OurAvatar34,
+  },
+  {
+    code: 'avatar-35',
+    component: OurAvatar35,
+  },
+  {
+    code: 'avatar-36',
+    component: OurAvatar36,
+  },
+  {
+    code: 'avatar-37',
+    component: OurAvatar37,
   },
 ];

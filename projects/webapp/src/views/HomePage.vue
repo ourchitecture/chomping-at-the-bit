@@ -56,7 +56,7 @@
         </swiper>
 
         <div style="margin-top: 50px; text-align: center">
-          <a href="./avatars">Avatars Test Page</a>
+          <router-link to="avatars">Avatars Test Page</router-link>
         </div>
       </div>
     </ion-content>
