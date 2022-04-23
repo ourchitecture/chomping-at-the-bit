@@ -54,6 +54,10 @@
             <our-vision></our-vision>
           </swiper-slide>
         </swiper>
+
+        <div style="margin-top: 50px; text-align: center">
+          <a href="/avatars">Avatars Test Page</a>
+        </div>
       </div>
     </ion-content>
   </ion-page>
@@ -138,5 +142,9 @@ export default defineComponent({
 ion-card {
   height: 100%;
   max-width: 650px;
+}
+
+.our-avatar {
+  max-height: 150px;
 }
 </style>
