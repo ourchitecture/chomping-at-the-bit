@@ -21,29 +21,23 @@
         </ion-toolbar>
       </ion-header>
 
-      <div id="container" class="ion-padding">
-        <ion-grid>
-          <ion-row>
-          <ion-col v-for="avatar in avatars" :key="avatar.name">
-            <ion-card>
-              <ion-card-header>
-                <ion-card-title>
-                  {{ avatar.name }}
-                </ion-card-title>
-                <ion-card-subtitle>
-                  {{ avatar.position }}
-                </ion-card-subtitle>
-              </ion-card-header>
-              <ion-card-content>
-                <component v-bind:is="avatar.component"></component>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar, diam sed vulputate ullamcorper, metus.
-                </p>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-          </ion-row>
-        </ion-grid>
+      <div id="container" class="ion-padding clearfix">
+        <ion-card v-for="avatar in avatars" :key="avatar.name">
+          <ion-card-header>
+            <ion-card-title>
+              {{ avatar.name }}
+            </ion-card-title>
+            <ion-card-subtitle>
+              {{ avatar.position }}
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <div style="center"><component v-bind:is="avatar.component"></component></div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar, diam sed vulputate ullamcorper, metus.
+            </p>
+          </ion-card-content>
+        </ion-card>
       </div>
     </ion-content>
   </ion-page>
@@ -91,8 +85,10 @@ export default defineComponent({
     IonToolbar,
   },
   setup() {
-    let themeIcon = ref(sunnyOutline);
-    let isDarkMode = false;
+    let themeIcon = ref(moon);
+    let isDarkMode = true;
+
+    document.body.classList.toggle('dark', isDarkMode);
 
     const positions = [
       'Business Capability Expert',
@@ -139,11 +135,22 @@ export default defineComponent({
 }
 
 ion-card {
+  display: inline-block;
+  flex-wrap: wrap;
   height: 100%;
-  max-width: 650px;
+  width: 300px;
 }
 
 .our-avatar {
   max-height: 150px;
+  float: left;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
 }
 </style>
