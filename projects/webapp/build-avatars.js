@@ -81,7 +81,7 @@ const generateAvatarComponents = async(avatarRootDirectoryPath, avatarFilePaths)
     console.debug(`Processing avatar "${avatarName}"...`);
 
     const avatarComponentFileName = `${avatarName}.vue`;
-    const componentCode = `avatar-${avatarIx}`;
+    const componentCode = avatarName;
     const componentName = `OurAvatar${avatarIx}`;
 
     newAvatarIndexFileImportContent += `import ${componentName} from './${avatarComponentFileName}';\n`;

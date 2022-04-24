@@ -26,6 +26,7 @@
     "@ionic/vue-router": "^6.0.0",
     "core-js": "^3.6.5",
     "human-names": "^1.0.11",
+    "pinia": "^2.0.13",
     "swiper": "^8.0.7",
     "vue": "^3.2.21",
     "vue-router": "^4.0.12"

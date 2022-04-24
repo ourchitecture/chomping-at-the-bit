@@ -21,11 +21,15 @@ import '@ionic/vue/css/flex-utils.css';
 import '@ionic/vue/css/display.css';
 
 /* Theme variables */
+// TODO: https://enappd.com/blog/make-awesome-theme-switcher-in-ionic-5/170/
 import './theme/variables.css';
+
+import { createPinia } from 'pinia'
 
 const app = createApp(App)
   .use(IonicVue)
-  .use(router);
+  .use(router)
+  .use(createPinia());
 
 router.isReady().then(() => {
   app.mount('#app');
