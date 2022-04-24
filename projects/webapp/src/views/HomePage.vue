@@ -14,10 +14,6 @@
       <ion-header collapse="condense">
         <ion-toolbar>
           <ion-title size="large"><ion-icon :icon="icons.book"></ion-icon> Chomping at the Bit</ion-title>
-          <ion-buttons slot="end">
-          <ion-icon :icon="icons.theme.value"></ion-icon>
-          <ion-toggle @ionChange="toggleTheme()"></ion-toggle>
-          </ion-buttons>
         </ion-toolbar>
       </ion-header>
 
