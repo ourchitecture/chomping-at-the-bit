@@ -87,6 +87,8 @@ import '@ionic/vue/css/ionic-swiper.css';
 
 import { defineComponent, ref } from 'vue';
 
+import { useThemeStore } from '../stores/themeStore';
+
 import OurMission from '../components/OurMission.vue';
 import OurValues from '../components/OurValues.vue';
 import OurVision from '../components/OurVision.vue';
@@ -109,9 +111,9 @@ export default defineComponent({
     SwiperSlide,
   },
   setup() {
+    const themeStore = useThemeStore();
 
     let themeIcon = ref(sunnyOutline);
-    let isDarkMode = false;
 
     return {
       icons: {
@@ -124,9 +126,9 @@ export default defineComponent({
         Navigation,
       ],
       toggleTheme: () => {
-        isDarkMode = !isDarkMode;
-        themeIcon.value = isDarkMode ? moon : sunnyOutline;
-        document.body.classList.toggle('dark', isDarkMode);
+        themeStore.darkMode = !themeStore.darkMode;
+        themeIcon.value = themeStore.darkMode ? moon : sunnyOutline;
+        document.body.classList.toggle('dark', themeStore.darkMode);
       },
     };
   },

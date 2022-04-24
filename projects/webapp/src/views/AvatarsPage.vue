@@ -64,6 +64,8 @@ import { book, moon, sunnyOutline } from 'ionicons/icons';
 
 import { defineComponent, ref } from 'vue';
 
+import { useThemeStore } from '../stores/themeStore';
+
 import names from 'human-names';
 
 import allAvatars from '../components/avatars';
@@ -85,10 +87,11 @@ export default defineComponent({
     IonToolbar,
   },
   setup() {
-    let themeIcon = ref(moon);
-    let isDarkMode = true;
+    const themeStore = useThemeStore();
 
-    document.body.classList.toggle('dark', isDarkMode);
+    let themeIcon = ref(sunnyOutline);
+
+    document.body.classList.toggle('dark', themeStore.darkMode);
 
     const positions = [
       'Business Capability Expert',
@@ -119,9 +122,9 @@ export default defineComponent({
         theme: themeIcon,
       },
       toggleTheme: () => {
-        isDarkMode = !isDarkMode;
-        themeIcon.value = isDarkMode ? moon : sunnyOutline;
-        document.body.classList.toggle('dark', isDarkMode);
+        themeStore.darkMode = !themeStore.darkMode;
+        themeIcon.value = themeStore.darkMode ? moon : sunnyOutline;
+        document.body.classList.toggle('dark', themeStore.darkMode);
       },
     };
   },
