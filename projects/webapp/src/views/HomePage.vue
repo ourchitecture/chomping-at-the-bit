@@ -115,6 +115,8 @@ export default defineComponent({
 
     let themeIcon = ref(sunnyOutline);
 
+    document.body.classList.toggle('dark', themeStore.darkMode);
+
     return {
       icons: {
         book,
