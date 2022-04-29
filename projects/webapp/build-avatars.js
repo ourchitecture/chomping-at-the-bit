@@ -62,7 +62,6 @@ async function generateAvatarComponentsAndStore(avatarRootDirectoryPath, avatarF
 
   let newAvatarIndexFileImportContent = '';
   let newAvatarIndexFileExportContent = `export default [`;
-  let newAvatarStoreFileContent = 'export default';
 
   let avatarIx = 0;
 
@@ -80,8 +79,6 @@ async function generateAvatarComponentsAndStore(avatarRootDirectoryPath, avatarF
     const avatarName = avatarFileName.replace(avatarFileExtension, '');
 
     console.debug(`Processing avatar "${avatarName}"...`);
-
-    const avatarGender = genderMap[avatarName];
 
     const avatarComponentFileName = `${avatarName}.vue`;
     const componentCode = avatarName;
