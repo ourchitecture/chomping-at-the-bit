@@ -44,7 +44,7 @@
                         <strong>Direct Reports</strong>
                       </ion-label>
                     </ion-item-divider>
-                    <ion-item v-for="associate in orgChart.directReports" :key="associate.employeeId">
+                    <ion-item v-for="associate in orgChart.directReports" :key="associate.id">
                       <ion-avatar slot="start">
                         <img :src="associate.avatarUrl">
                       </ion-avatar>
@@ -60,7 +60,7 @@
           </ion-card>
         </div>
         <div class="clearfix">
-          <ion-card v-for="avatar in avatars" :key="avatar.name">
+          <ion-card v-for="avatar in avatars" :key="avatar.id">
             <ion-card-header>
               <ion-card-title>
                 {{ avatar.name }}
@@ -106,22 +106,11 @@ import {
 
 import { book, moon, sunnyOutline } from 'ionicons/icons';
 
-import { defineComponent, ref, Component } from 'vue';
-
-import names from 'human-names';
+import { defineComponent, ref } from 'vue';
 
 import { useThemeStore } from '../stores/themeStore';
-
-import allAvatars from '../components/avatars';
-
-interface OrgChartEmployee {
-  id: string;
-  avatarUrl: string;
-  component: Component;
-  name: string;
-  title: string;
-  directReports: OrgChartEmployee[];
-}
+import { useAvatarStore } from '../stores/avatarStore';
+import { IOrgChartEmployee } from '../stores/avatars';
 
 export default defineComponent({
   components: {
@@ -146,68 +135,32 @@ export default defineComponent({
   },
   setup() {
     const themeStore = useThemeStore();
+    const avatarStore = useAvatarStore();
 
     let themeIcon = ref(sunnyOutline);
 
     document.body.classList.toggle('dark', themeStore.darkMode);
 
-    const positions = [
-      'Business Capability Expert',
-      'People Expert',
-      'Process Expert',
-      'Technology Expert',
-    ];
+    const avatars = avatarStore.avatars;
 
-    const avatars = allAvatars.map((avatar) => {
-      const component = avatar.component;
-      const givenName = names.allRandom();
-      const surName = names.allRandom();
-      const name = `${givenName} ${surName}`;
+    const randomEmployees: IOrgChartEmployee[] = [];
 
-      const position = positions[Math.floor(Math.random() * positions.length)];
+    while (randomEmployees.length < 6) {
+      let randomEmployee = avatarStore.createRandomEmployee();
 
-      return {
-        name,
-        code: avatar.code,
-        position,
-        component,
-      };
-    });
-
-    const selectedAvatarIndexes: number[] = [];
-
-    function createRandomEmployee(): OrgChartEmployee {
-      let avatarIx = Math.floor(Math.random() * avatars.length);
-
-      // search for unused avatar indexes
-      while (selectedAvatarIndexes.indexOf(avatarIx) >= 0) {
-        avatarIx = Math.floor(Math.random() * avatars.length);
+      // avoid reusing an employee id (i.e. same avatar)
+      while (randomEmployees.find((employee: IOrgChartEmployee) => employee.id == randomEmployee.id)) {
+        randomEmployee = avatarStore.createRandomEmployee();
       }
 
-      selectedAvatarIndexes.push(avatarIx);
-
-      const randomAvatar = avatars[avatarIx];
-      const directReports : OrgChartEmployee[] = [];
-
-      return {
-        id: `employee${avatarIx}`,
-        avatarUrl: `assets/avatars/${randomAvatar.code}_256h.png`,
-        component: randomAvatar.component,
-        name: randomAvatar.name,
-        title: randomAvatar.position,
-        directReports,
-      };
+      randomEmployees.push(randomEmployee);
     }
 
-    const orgChart = createRandomEmployee();
+    // const selectedAvatarIndexes: number[] = [];
 
-    const directReports = [
-      createRandomEmployee(),
-      createRandomEmployee(),
-      createRandomEmployee(),
-      createRandomEmployee(),
-      createRandomEmployee(),
-    ];
+    const orgChart = randomEmployees[0];
+
+    const directReports = randomEmployees.slice(1);
 
     orgChart.directReports.push(...directReports);
 

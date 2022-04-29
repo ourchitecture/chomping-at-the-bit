@@ -56,7 +56,7 @@ ${currentLicenseFileEndContent}
   console.info(`Successfully updated Adobe Stock license file "${currentLicenseFilePath}".`);
 };
 
-const generateAvatarComponents = async(avatarRootDirectoryPath, avatarFilePaths) => {
+async function generateAvatarComponentsAndStore(avatarRootDirectoryPath, avatarFilePaths) {
 
   console.log('Building Avatar components...');
 
@@ -93,7 +93,7 @@ const generateAvatarComponents = async(avatarRootDirectoryPath, avatarFilePaths)
 
     const avatarSvgXml = await fs.readFile(avatarFilePath, { encoding: 'utf-8' });
 
-    const avatarSvg = xmljs.xml2js(avatarSvgXml, {compact: true, spaces: 4});
+    const avatarSvg = xmljs.xml2js(avatarSvgXml, { compact: true, spaces: 4 });
 
     avatarSvg.svg._attributes.class = `our-avatar our-${avatarName}`;
 
@@ -107,7 +107,6 @@ ${avatarSvg.svg.defs.style._text}
 </style>`;
 
         // console.debug('Avatar <style>', componentStyle);
-
         delete avatarSvg.svg.defs.style;
       }
 
@@ -117,7 +116,7 @@ ${avatarSvg.svg.defs.style._text}
       }
     }
 
-    const newAvatarSvgXml = xmljs.js2xml(avatarSvg, {compact: true, ignoreComment: true, spaces: 0});
+    const newAvatarSvgXml = xmljs.js2xml(avatarSvg, { compact: true, ignoreComment: true, spaces: 0 });
 
     const avatarComponentContent = `<template>
   ${newAvatarSvgXml}
@@ -126,7 +125,6 @@ ${componentStyle}
 `;
 
     // console.debug('Avatar component content', avatarComponentContent);
-
     const avatarComponentFilePath = path.join('./src/components/avatars/', avatarComponentFileName);
 
     console.debug(`Avatar component file ${avatarComponentFilePath}`);
@@ -145,14 +143,13 @@ ${componentStyle}
   }
 
   newAvatarIndexFileExportContent += `
-];`
+];`;
 
   const newAvatarIndexFileContent = `${newAvatarIndexFileImportContent}
 ${newAvatarIndexFileExportContent}
 `;
 
   // console.debug('New avatar component index file content', newAvatarIndexFileContent);
-
   const newAvatarIndexFilePath = './src/components/avatars/index.ts';
 
   if (await fileExists(newAvatarIndexFilePath)) {
@@ -166,7 +163,7 @@ ${newAvatarIndexFileExportContent}
   console.info(`Successfully created file "${newAvatarIndexFilePath}".`);
 
   console.log('Successfully built Avatar components.');
-};
+}
 
 const main = async() => {
 
@@ -178,7 +175,7 @@ const main = async() => {
 
   await updateAdobeStockLicenseFile(adobeStockRootDirectoryPath, avatarFilePaths);
 
-  await generateAvatarComponents(avatarRootDirectoryPath, avatarFilePaths);
+  await generateAvatarComponentsAndStore(avatarRootDirectoryPath, avatarFilePaths);
 };
 
 main();
