@@ -4,6 +4,10 @@ import names from 'human-names';
 
 import avatarComponents from '../components/avatars';
 
+function getRandomRating(min: number, max: number) {
+  return Math.round(Math.random() * (max - min) + min);
+}
+
 export const expertiseTitles = [
   'Business Capability Expert',
   'People Expert',
@@ -17,6 +21,13 @@ export enum GenderEnum {
   other,
 }
 
+export interface IExpertise {
+  business: number;
+  people: number;
+  process: number;
+  technology: number;
+}
+
 export interface IAvatar {
   id: string;
   name: string;
@@ -24,6 +35,7 @@ export interface IAvatar {
   code: string;
   position: string;
   component: Component;
+  expertise: IExpertise;
 }
 
 export interface IOrgChartEmployee {
@@ -32,7 +44,8 @@ export interface IOrgChartEmployee {
   component: Component;
   name: string;
   gender: string;
-  title: string;
+  position: string;
+  expertise: IExpertise;
   directReports: IOrgChartEmployee[];
 }
 
@@ -140,12 +153,21 @@ export function generateAvatarComponents() {
 
     const position = expertiseTitles[Math.floor(Math.random() * expertiseTitles.length)];
 
+    // weight expertise according to position
+    const expertise: IExpertise = {
+      business: position.startsWith('Business') ? getRandomRating(3, 5) : getRandomRating(1, 5),
+      people: position.startsWith('People') ? getRandomRating(3, 5) : getRandomRating(1, 5),
+      process: position.startsWith('Process') ? getRandomRating(3, 5) : getRandomRating(1, 5),
+      technology: position.startsWith('Technology') ? getRandomRating(3, 5) : getRandomRating(1, 5),
+    };
+
     return {
       id: `employee${avatar.code}`,
       name,
       gender: GenderEnum[gender],
       code: avatar.code,
       position,
+      expertise,
       component,
     };
   });
@@ -165,7 +187,8 @@ export function generateRandomEmployee(avatars: IAvatar[]): IOrgChartEmployee {
     component: randomAvatar.component,
     name: randomAvatar.name,
     gender: randomAvatar.gender,
-    title: randomAvatar.position,
+    position: randomAvatar.position,
+    expertise: randomAvatar.expertise,
     directReports,
   };
 }

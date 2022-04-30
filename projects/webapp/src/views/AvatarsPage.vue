@@ -20,14 +20,14 @@
       <div id="container" class="ion-padding">
         <h2>Org Chart</h2>
         <div>
-          <ion-card>
+          <ion-card style="min-width: 350px">
             <ion-card-header>
+              <ion-card-subtitle color="secondary">
+                {{ orgChart.position }}
+              </ion-card-subtitle>
               <ion-card-title color="primary">
                 {{ orgChart.name }}
               </ion-card-title>
-              <ion-card-subtitle>
-                {{ orgChart.title }}
-              </ion-card-subtitle>
             </ion-card-header>
             <ion-card-content>
               <div class="clearfix">
@@ -36,6 +36,24 @@
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar, diam sed vulputate ullamcorper, metus.
                 </p>
               </div>
+              <ion-list>
+                <ion-item>
+                  <ion-label>Business Expertise</ion-label>
+                  <ion-badge slot="end">{{ orgChart.expertise.business }}</ion-badge>
+                </ion-item>
+                <ion-item>
+                  <ion-label>People Expertise</ion-label>
+                  <ion-badge slot="end">{{ orgChart.expertise.people }}</ion-badge>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Process Expertise</ion-label>
+                  <ion-badge slot="end">{{ orgChart.expertise.process }}</ion-badge>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Technology Expertise</ion-label>
+                  <ion-badge slot="end">{{ orgChart.expertise.technology }}</ion-badge>
+                </ion-item>
+              </ion-list>
               <div>
                 <ion-list>
                   <ion-item-group>
@@ -49,8 +67,8 @@
                         <img :src="associate.avatarUrl">
                       </ion-avatar>
                       <ion-label>
-                        <h3>{{ associate.name }}</h3>
-                        <p>{{ associate.title }}</p>
+                        <h3><ion-text color="primary">{{ associate.name }}</ion-text></h3>
+                        <p><ion-text color="secondary">{{ associate.position }}</ion-text></p>
                       </ion-label>
                     </ion-item>
                   </ion-item-group>
@@ -60,22 +78,7 @@
           </ion-card>
         </div>
         <div class="clearfix">
-          <ion-card v-for="avatar in avatars" :key="avatar.id">
-            <ion-card-header>
-              <ion-card-title>
-                {{ avatar.name }}
-              </ion-card-title>
-              <ion-card-subtitle>
-                {{ avatar.position }}
-              </ion-card-subtitle>
-            </ion-card-header>
-            <ion-card-content>
-              <div style="center"><component v-bind:is="avatar.component"></component></div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar, diam sed vulputate ullamcorper, metus.
-              </p>
-            </ion-card-content>
-          </ion-card>
+          <our-avatar v-for="avatar in avatars" :key="avatar.id" :avatar="avatar"></our-avatar>
         </div>
       </div>
     </ion-content>
@@ -84,6 +87,7 @@
 
 <script lang="ts">
 import {
+  IonBadge,
   IonButtons,
   IonCard,
   IonCardContent,
@@ -108,12 +112,14 @@ import { book, moon, sunnyOutline } from 'ionicons/icons';
 
 import { defineComponent, ref } from 'vue';
 
+import OurAvatar from '../components/OurAvatar.vue';
+
 import { useThemeStore } from '../stores/themeStore';
 import { useAvatarStore } from '../stores/avatarStore';
-import { IOrgChartEmployee } from '../stores/avatars';
 
 export default defineComponent({
   components: {
+    IonBadge,
     IonButtons,
     IonCard,
     IonCardContent,
@@ -132,6 +138,7 @@ export default defineComponent({
     IonTitle,
     IonToggle,
     IonToolbar,
+    OurAvatar,
   },
   setup() {
     const themeStore = useThemeStore();
@@ -141,32 +148,9 @@ export default defineComponent({
 
     document.body.classList.toggle('dark', themeStore.darkMode);
 
-    const avatars = avatarStore.avatars;
-
-    const randomEmployees: IOrgChartEmployee[] = [];
-
-    while (randomEmployees.length < 6) {
-      let randomEmployee = avatarStore.createRandomEmployee();
-
-      // avoid reusing an employee id (i.e. same avatar)
-      while (randomEmployees.find((employee: IOrgChartEmployee) => employee.id == randomEmployee.id)) {
-        randomEmployee = avatarStore.createRandomEmployee();
-      }
-
-      randomEmployees.push(randomEmployee);
-    }
-
-    // const selectedAvatarIndexes: number[] = [];
-
-    const orgChart = randomEmployees[0];
-
-    const directReports = randomEmployees.slice(1);
-
-    orgChart.directReports.push(...directReports);
-
     return {
-      orgChart,
-      avatars,
+      orgChart: avatarStore.orgChart,
+      avatars: avatarStore.avatars,
       icons: {
         book,
         theme: themeIcon,
